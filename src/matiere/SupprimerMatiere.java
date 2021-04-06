@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package etudiant;
+
+package matiere;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -20,22 +16,21 @@ import org.json.JSONObject;
  *
  * @author anghack
  */
-public class SupprimerEtudiant {
+public class SupprimerMatiere {
     
     public static void main(String[] args) {
         try {
-            SupprimerEtudiant.supprimerEtudiant();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } 
+            SupprimerMatiere.supprimerMatiere();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
-    public static void supprimerEtudiant() throws MalformedURLException, JSONException, IOException {
-
-        URL url = new URL("http://localhost/ApiM1/Etudiant/supprimerEtudiant.php");
+    
+    public static void supprimerMatiere() throws MalformedURLException, JSONException, IOException{
+    URL url = new URL("http://localhost/ApiM1/Matiere/supprimerMatiere.php");
 
         JSONObject params = new JSONObject();
-        params.put("numEt", 4);
+        params.put("codeMat", "fafana");
 
         String valeur = params.toString();
         System.out.println(params);
@@ -56,5 +51,6 @@ public class SupprimerEtudiant {
 
         JSONObject jsObj = new JSONObject(result);
         System.out.println("Message: " + jsObj.getString("message"));
+    
     }
 }

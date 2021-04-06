@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package etudiant;
+
+package matiere;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -20,31 +16,32 @@ import org.json.JSONObject;
  *
  * @author anghack
  */
-public class SupprimerEtudiant {
+public class ModifierMatiere {
     
     public static void main(String[] args) {
         try {
-            SupprimerEtudiant.supprimerEtudiant();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } 
+            ModifierMatiere.modifierMatiere();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
-    public static void supprimerEtudiant() throws MalformedURLException, JSONException, IOException {
-
-        URL url = new URL("http://localhost/ApiM1/Etudiant/supprimerEtudiant.php");
+    
+    public static void modifierMatiere() throws MalformedURLException, IOException, JSONException{
+                URL url = new URL("http://localhost/ApiM1/Matiere/modifierMatiere.php");
 
         JSONObject params = new JSONObject();
-        params.put("numEt", 4);
+        params.put("codeMat", "E007");
+        params.put("libelleMat", "Tena tsara");
+        params.put("coefMat", 3);
 
         String valeur = params.toString();
         System.out.println(params);
 
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("DELETE");
+        conn.setRequestMethod("PUT");
         conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         conn.setRequestProperty("Accept", "application/json");
-        conn.setDoInput(true); 
+        conn.setDoInput(true); //
         conn.setDoOutput(true);
 
         OutputStream os = conn.getOutputStream();
@@ -55,6 +52,6 @@ public class SupprimerEtudiant {
         String result = IOUtils.toString(in, "UTF-8");
 
         JSONObject jsObj = new JSONObject(result);
-        System.out.println("Message: " + jsObj.getString("message"));
+        System.out.println("Message: "+jsObj.getString("message"));
     }
 }

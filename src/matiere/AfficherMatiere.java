@@ -62,7 +62,7 @@ public class AfficherMatiere {
                 System.out.println("\n ******** Code matiere '" + codeMati + "' *********** ");
                 String libelleMati = mat.getString("libelleMat");
                 System.out.println("Libelle: " + libelleMati);
-                String coefMati = mat.getString("coefMat");
+                int coefMati = mat.getInt("coefMat");
                 System.out.println("Niveau: " + coefMati);
                 
 
