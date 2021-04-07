@@ -30,10 +30,10 @@ public class ModifierNotesEtudiant {
         URL url = new URL("http://localhost/ApiM1/Notes/modifierNotesEtudiant.php");
         
         JSONObject params = new JSONObject();
-        params.put("numInscription", "686");
-        params.put("numEt", 95);
+        params.put("numInscription", "2 H-F");
+        params.put("numEt", 2);
         params.put("codeMat", "E004");
-        params.put("note", 15);
+        params.put("note", 12);
 
         String valeur = params.toString();
         System.out.println(params);

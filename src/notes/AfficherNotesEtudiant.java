@@ -55,6 +55,10 @@ public class AfficherNotesEtudiant {
         // JSON to Object Java
         JSONObject jsObj = new JSONObject(result);
         int nb = 1;
+        
+        System.out.println("\nEtudiant numero: "+jsObj.getInt("numEt"));
+        System.out.println("Nom: "+jsObj.getString("nomEt"));
+        System.out.println("Classe: "+jsObj.getString("niveauEt"));
 
         JSONArray jsArr = (JSONArray) jsObj.getJSONArray("33 H-F"); // variable
         System.out.println("\nLes notes de " + "33 H-F");
@@ -62,14 +66,8 @@ public class AfficherNotesEtudiant {
             JSONObject notes = jsArr.getJSONObject(i);
             System.out.println("\n ******** Note n '" + nb++ + "' *********** ");
 
-            int numEtud = notes.getInt("Numero d'Etudiant");
-            System.out.println("Numero: " + numEtud);
-            String nomEtud = notes.getString("Nom");
-            System.out.println("Nom: " + nomEtud);
             String libelleMati = notes.getString("libelle matiere");
             System.out.println("Matiere: " + libelleMati);
-            String niveauEtud = notes.getString("Niveau");
-            System.out.println("Niveau: " + niveauEtud);
             int note = notes.getInt("Notes");
             System.out.println("Note: " + note);
             String coefMati = notes.getString("Coefficient matiere");

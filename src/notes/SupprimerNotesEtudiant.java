@@ -30,9 +30,9 @@ public class SupprimerNotesEtudiant {
         URL url = new URL("http://localhost/ApiM1/Notes/supprimerNotesEtudiant.php");
 
         JSONObject params = new JSONObject();
-        params.put("numInscription", "686");
-        params.put("numEt", "95");
-        params.put("codeMat", "E004");
+        params.put("numInscription", "33 H-F");
+        params.put("numEt", 33);
+        params.put("codeMat", "EOO5");
 
         String valeur = params.toString();
         System.out.println(params);
