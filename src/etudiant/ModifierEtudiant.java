@@ -30,9 +30,9 @@ public class ModifierEtudiant {
         URL url = new URL("http://localhost/ApiM1/Etudiant/modifierEtudiant.php");
 
         JSONObject params = new JSONObject();
-        params.put("numEt", 35);
-        params.put("nomEt", "Kererion");
-        params.put("niveauEt", "M1");
+        params.put("numEt", 5);
+        params.put("nomEt", "Puyol");
+        params.put("niveauEt", "L1");
 
         String valeur = params.toString();
         System.out.println(params);
@@ -52,6 +52,6 @@ public class ModifierEtudiant {
         String result = IOUtils.toString(in, "UTF-8");
 
         JSONObject jsObj = new JSONObject(result);
-        System.out.println("Message: "+jsObj.getString("message"));
+        System.out.println("Message: " + jsObj.getString("message"));
     }
 }

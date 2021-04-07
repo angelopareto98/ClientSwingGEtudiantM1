@@ -1,0 +1,15 @@
+
+                                        PROBLEME A RESOUDRE:
+BDD sy gne relation @naz tokony hamboarigny tsara
+
+numEt   => tokony ho "VarChar" gne type_ny fa tsy int
+note, moyenne => tokony ho "double" satria misy virgule
+
+etudiant.SupprimerEtudiant
+        => Tsy mety fafagny e Etudiant ra ohatra ka manana notes iz (Mety avy @ e relation entre table e mahavy anzn)
+
+matiere.SupprimerMatiere
+        => Mitovy @ e olagnan'e ambony io (Mety avy @ e relation entre table e mahavy anzn)
+
+notes.AjouterNotesEtudiant:
+        => Ndre numInscription, numEt, codeMat efa managni note da mbola azo hampidirigny avao (Tokony asiagny condition e hagnatin'e Requete oe "ra ohatra ka efa misy aby io da ts azo hampidirigny koa" )

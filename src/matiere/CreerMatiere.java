@@ -7,8 +7,6 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,8 +30,8 @@ public class CreerMatiere {
         URL url = new URL("http://localhost/ApiM1/Matiere/creerMatiere.php");
 
         JSONObject params = new JSONObject();
-        params.put("codeMat", "E007");
-        params.put("libelleMat", "Fafana");
+        params.put("codeMat", "E005");
+        params.put("libelleMat", "Symphonie");
         params.put("coefMat", 2);
 
         String valeur = params.toString();

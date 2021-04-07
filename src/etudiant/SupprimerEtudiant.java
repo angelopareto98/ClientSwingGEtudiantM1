@@ -21,13 +21,13 @@ import org.json.JSONObject;
  * @author anghack
  */
 public class SupprimerEtudiant {
-    
+
     public static void main(String[] args) {
         try {
             SupprimerEtudiant.supprimerEtudiant();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } 
+        }
     }
 
     public static void supprimerEtudiant() throws MalformedURLException, JSONException, IOException {
@@ -35,7 +35,7 @@ public class SupprimerEtudiant {
         URL url = new URL("http://localhost/ApiM1/Etudiant/supprimerEtudiant.php");
 
         JSONObject params = new JSONObject();
-        params.put("numEt", 4);
+        params.put("numEt", 95);
 
         String valeur = params.toString();
         System.out.println(params);
@@ -44,7 +44,7 @@ public class SupprimerEtudiant {
         conn.setRequestMethod("DELETE");
         conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         conn.setRequestProperty("Accept", "application/json");
-        conn.setDoInput(true); 
+        conn.setDoInput(true);
         conn.setDoOutput(true);
 
         OutputStream os = conn.getOutputStream();

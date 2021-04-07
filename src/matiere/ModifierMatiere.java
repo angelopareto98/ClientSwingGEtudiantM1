@@ -1,4 +1,3 @@
-
 package matiere;
 
 import java.io.BufferedInputStream;
@@ -17,7 +16,7 @@ import org.json.JSONObject;
  * @author anghack
  */
 public class ModifierMatiere {
-    
+
     public static void main(String[] args) {
         try {
             ModifierMatiere.modifierMatiere();
@@ -25,13 +24,13 @@ public class ModifierMatiere {
             e.printStackTrace();
         }
     }
-    
-    public static void modifierMatiere() throws MalformedURLException, IOException, JSONException{
-                URL url = new URL("http://localhost/ApiM1/Matiere/modifierMatiere.php");
+
+    public static void modifierMatiere() throws MalformedURLException, IOException, JSONException {
+        URL url = new URL("http://localhost/ApiM1/Matiere/modifierMatiere.php");
 
         JSONObject params = new JSONObject();
-        params.put("codeMat", "E007");
-        params.put("libelleMat", "Tena tsara");
+        params.put("codeMat", "E005");
+        params.put("libelleMat", "Symfony");
         params.put("coefMat", 3);
 
         String valeur = params.toString();
@@ -52,6 +51,6 @@ public class ModifierMatiere {
         String result = IOUtils.toString(in, "UTF-8");
 
         JSONObject jsObj = new JSONObject(result);
-        System.out.println("Message: "+jsObj.getString("message"));
+        System.out.println("Message: " + jsObj.getString("message"));
     }
 }
