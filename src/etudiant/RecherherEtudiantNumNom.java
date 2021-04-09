@@ -30,7 +30,7 @@ public class RecherherEtudiantNumNom {
     public static void recherherEtudiantNumNom() throws IOException, JSONException {
         URL url = new URL("http://localhost/ApiM1/Etudiant/recherherEtudiantNumNom.php");
         
-        
+        System.out.println("Entrer le numero de l'Etudiant a chercher: ");
         Scanner sc = new Scanner(in);
         int n = sc.nextInt();
 
@@ -63,7 +63,7 @@ public class RecherherEtudiantNumNom {
         System.out.println("\nLes infos sur ce numero sont: ");
         for (int i = 0; i < jsArr.length(); i++) {
             JSONObject etud = jsArr.getJSONObject(i);
-            int numeroEtud = etud.getInt("Numero d'Etudiant");
+            String numeroEtud = etud.getString("Numero d'Etudiant");
             System.out.println("Numero: " + numeroEtud);
             String nomEtud = etud.getString("Nom");
             System.out.println("Nom: " + nomEtud);

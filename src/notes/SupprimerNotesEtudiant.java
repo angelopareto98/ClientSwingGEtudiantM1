@@ -31,7 +31,7 @@ public class SupprimerNotesEtudiant {
 
         JSONObject params = new JSONObject();
         params.put("numInscription", "33 H-F");
-        params.put("numEt", 33);
+        params.put("numEt", "33");
         params.put("codeMat", "EOO5");
 
         String valeur = params.toString();

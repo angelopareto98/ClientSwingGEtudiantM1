@@ -31,7 +31,7 @@ public class BulletinNotesEtudiant {
         URL url = new URL("http://localhost/ApiM1/Notes/bulletinNotesEtudiant.php");
 
         JSONObject params = new JSONObject();
-        params.put("numInscription", "686 H-F");  //  variable
+        params.put("numInscription", "586 H-F");  //  variable
 
         String valeur = params.toString();
         System.out.println(params);
@@ -56,11 +56,11 @@ public class BulletinNotesEtudiant {
         JSONObject jsObj = new JSONObject(result);
         int nb = 1;
         
-        System.out.println("\nEtudiant numero: "+jsObj.getInt("numEt"));
+        System.out.println("\nEtudiant numero: "+jsObj.getString("numEt"));
         System.out.println("Nom: "+jsObj.getString("nomEt"));
         System.out.println("Niveau: "+jsObj.getString("niveauEt"));
 
-        JSONArray jsArr = (JSONArray) jsObj.getJSONArray("686 H-F");  // variable
+        JSONArray jsArr = (JSONArray) jsObj.getJSONArray("586 H-F");  // variable
         System.out.println("\nLes notes de " + "686 H-F"); //variable
         for (int i = 0; i < jsArr.length(); i++) {
             JSONObject notes = jsArr.getJSONObject(i);
@@ -71,14 +71,14 @@ public class BulletinNotesEtudiant {
 
             String coefMati = notes.getString("Coefficient matiere");
             System.out.println("Coefficient: " + coefMati);
-            int note = notes.getInt("Notes");
+            double note = notes.getDouble("Notes");
             System.out.println("Note: " + note);
-            int notePond = notes.getInt("Note Ponderee");
+            double notePond = notes.getDouble("Note Ponderee");
             System.out.println("Note ponderee: " + notePond);
         }
 
         JSONObject jsObjMoyenne = jsObj.getJSONObject("Moyenne");
-        String moyenne = jsObjMoyenne.getString("moyenne");
+        double moyenne = jsObjMoyenne.getDouble("moyenne");
         System.out.println("\n\n        Moyenne = " + moyenne);
     }
 }

@@ -54,7 +54,7 @@ public class AfficherEtudiant {
             for (int i = 0; i < len; i++) {
                 JSONObject etud = jArray.getJSONObject(i);
                 System.out.println("\n ******** Etudiant " + nb++ + " *********** ");
-                int numeroEtud = etud.getInt("numEt");
+                String numeroEtud = etud.getString("numEt");
                 System.out.println("Numero: " + numeroEtud);
                 String nomEtud = etud.getString("nomEt");
                 System.out.println("Nom: " + nomEtud);

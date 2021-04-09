@@ -30,9 +30,9 @@ public class ModifierEtudiant {
         URL url = new URL("http://localhost/ApiM1/Etudiant/modifierEtudiant.php");
 
         JSONObject params = new JSONObject();
-        params.put("numEt", 5);
-        params.put("nomEt", "Puyol");
-        params.put("niveauEt", "L1");
+        params.put("numEt", "99");
+        params.put("nomEt", "Ninenty nine");
+        params.put("niveauEt", "L2");
 
         String valeur = params.toString();
         System.out.println(params);

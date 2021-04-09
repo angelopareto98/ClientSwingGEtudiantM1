@@ -30,7 +30,7 @@ public class SupprimerMatiere {
     URL url = new URL("http://localhost/ApiM1/Matiere/supprimerMatiere.php");
 
         JSONObject params = new JSONObject();
-        params.put("codeMat", "E005");
+        params.put("codeMat", "E009");
 
         String valeur = params.toString();
         System.out.println(params);

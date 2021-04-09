@@ -35,7 +35,7 @@ public class SupprimerEtudiant {
         URL url = new URL("http://localhost/ApiM1/Etudiant/supprimerEtudiant.php");
 
         JSONObject params = new JSONObject();
-        params.put("numEt", 95);
+        params.put("numEt", "66");
 
         String valeur = params.toString();
         System.out.println(params);

@@ -27,9 +27,9 @@ public class CreerEtudiant {
         URL url = new URL("http://localhost/ApiM1/Etudiant/creerEtudiant.php");
 
         JSONObject params = new JSONObject();
-        params.put("numEt", 12);
-        params.put("nomEt", "Abel Anicet");
-        params.put("niveauEt", "L1");
+        params.put("numEt", "99");
+        params.put("nomEt", "Quatre ving dix-neuf");
+        params.put("niveauEt", "L3");
 
         String valeur = params.toString();
         System.out.println(params);

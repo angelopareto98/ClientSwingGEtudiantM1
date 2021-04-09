@@ -30,8 +30,8 @@ public class CreerMatiere {
         URL url = new URL("http://localhost/ApiM1/Matiere/creerMatiere.php");
 
         JSONObject params = new JSONObject();
-        params.put("codeMat", "E005");
-        params.put("libelleMat", "Symphonie");
+        params.put("codeMat", "E008");
+        params.put("libelleMat", "Symfony");
         params.put("coefMat", 2);
 
         String valeur = params.toString();

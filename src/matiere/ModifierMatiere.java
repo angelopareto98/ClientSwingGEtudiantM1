@@ -29,7 +29,7 @@ public class ModifierMatiere {
         URL url = new URL("http://localhost/ApiM1/Matiere/modifierMatiere.php");
 
         JSONObject params = new JSONObject();
-        params.put("codeMat", "E005");
+        params.put("codeMat", "E008");
         params.put("libelleMat", "Symfony");
         params.put("coefMat", 3);
 

@@ -59,11 +59,11 @@ public class AfficherNotes {
                 JSONObject notes = jArray.getJSONObject(i);
                 String numInscription = notes.getString("numInscription");
                 System.out.println("\n ******** Numero d'Inscription '" + numInscription + "' *********** ");
-                int numEtud = notes.getInt("numEt");
+                String numEtud = notes.getString("numEt");
                 System.out.println("Numero: "+numEtud);
                 String codeMati = notes.getString("codeMat");
                 System.out.println("Code Matiere: " + codeMati);
-                int note = notes.getInt("note");
+                double note = notes.getDouble("note");
                 System.out.println("Note: " + note);
                 
 
