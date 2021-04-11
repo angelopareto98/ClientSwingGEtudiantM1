@@ -786,27 +786,33 @@ public class Etudiant extends javax.swing.JInternalFrame {
 
         }
         in.close();
-
-        JSONObject myResponse = new JSONObject(response.toString());
-        int nb = 1;
-
         d = (DefaultTableModel) table.getModel();
-        JSONArray jArray = (JSONArray) myResponse.getJSONArray("etudiant");
-        if (jArray != null) {
-            int len = jArray.length();
-            for (int i = 0; i < len; i++) {
-                JSONObject etud = jArray.getJSONObject(i);
+        if (response.length() > 0) {
+            JSONObject myResponse = new JSONObject(response.toString());
+            int nb = 1;
 
-                String numeroEtud = etud.getString("numEt");
-                String nomEtud = etud.getString("nomEt");
-                String niveauEtud = etud.getString("niveauEt");
+            JSONArray jArray = (JSONArray) myResponse.getJSONArray("etudiant");
+            if (jArray != null) {
+                int len = jArray.length();
+                for (int i = 0; i < len; i++) {
+                    JSONObject etud = jArray.getJSONObject(i);
 
-                String etudiants[] = new String[]{numeroEtud, nomEtud, niveauEtud};
+                    String numeroEtud = etud.getString("numEt");
+                    String nomEtud = etud.getString("nomEt");
+                    String niveauEtud = etud.getString("niveauEt");
 
-                d.addRow(etudiants);
+                    String etudiants[] = new String[]{numeroEtud, nomEtud, niveauEtud};
 
+                    d.addRow(etudiants);
+
+                }
             }
+        } else {
+            String etudiants[] = new String[]{"Aucun", "Aucun", "Aucun"};
+
+            d.addRow(etudiants);
         }
+
     }
 
     private void rechercheEtudiantParNumNom() throws MalformedURLException, IOException, JSONException {
@@ -900,16 +906,21 @@ public class Etudiant extends javax.swing.JInternalFrame {
         InputStream in = new BufferedInputStream(conn.getInputStream());
         String result = IOUtils.toString(in, "UTF-8");
 
-        JSONObject jsObj = new JSONObject(result);
-        int n = 1;
+        if (result.length() > 0) {
+            JSONObject jsObj = new JSONObject(result);
+            int n = 1;
 
-        JSONArray jsArr = (JSONArray) jsObj.getJSONArray(classeCher);
-        for (int i = 0; i < jsArr.length(); i++) {
-            l.addElement("N " + n + " : " + jsArr.get(i).toString());
-            n++;
+            JSONArray jsArr = (JSONArray) jsObj.getJSONArray(classeCher);
+            for (int i = 0; i < jsArr.length(); i++) {
+                l.addElement("N " + n + " : " + jsArr.get(i).toString());
+                n++;
+            }
+            listClasse.setModel(l);
+            effectifLabel.setText(" Niveau : " + classeCher);
+        } else {
+            l.addElement("Aucune Etudiant dans cette classe");
+            listClasse.setModel(l);
         }
-        listClasse.setModel(l);
-        effectifLabel.setText(" Niveau : "+classeCher);
     }
 
 }

@@ -10,8 +10,6 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -309,7 +307,7 @@ public class Matiere extends javax.swing.JInternalFrame {
             afficherMatiere();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } 
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -364,25 +362,30 @@ public class Matiere extends javax.swing.JInternalFrame {
 
         }
         in.close();
-
-        JSONObject myResponse = new JSONObject(response.toString());
-
         d = (DefaultTableModel) table.getModel();
-        JSONArray jArray = (JSONArray) myResponse.getJSONArray("matiere");
-        if (jArray != null) {
-            int len = jArray.length();
-            for (int i = 0; i < len; i++) {
-                JSONObject mat = jArray.getJSONObject(i);
-                String codeMati = mat.getString("codeMat");
-                String libelleMati = mat.getString("libelleMat");
-                int coefMati = mat.getInt("coefMat");
+        if (response.length() > 0) {
+            JSONObject myResponse = new JSONObject(response.toString());
 
-                Object matieres[] = new Object[]{codeMati, libelleMati, coefMati};
+            JSONArray jArray = (JSONArray) myResponse.getJSONArray("matiere");
+            if (jArray != null) {
+                int len = jArray.length();
+                for (int i = 0; i < len; i++) {
+                    JSONObject mat = jArray.getJSONObject(i);
+                    String codeMati = mat.getString("codeMat");
+                    String libelleMati = mat.getString("libelleMat");
+                    int coefMati = mat.getInt("coefMat");
 
-                d.addRow(matieres);
+                    Object matieres[] = new Object[]{codeMati, libelleMati, coefMati};
 
+                    d.addRow(matieres);
+                }
             }
+        } else {
+            Object matieres[] = new Object[]{"Aucun", "Aucun", "Aucun"};
+
+            d.addRow(matieres);
         }
+
     }
 
     private void creerMatiere() throws MalformedURLException, JSONException, IOException {
@@ -447,7 +450,7 @@ public class Matiere extends javax.swing.JInternalFrame {
     }
 
     private void supprimerMatiere() throws MalformedURLException, JSONException, IOException {
-         URL url = new URL("http://localhost/ApiM1/Matiere/supprimerMatiere.php");
+        URL url = new URL("http://localhost/ApiM1/Matiere/supprimerMatiere.php");
 
         JSONObject params = new JSONObject();
         params.put("codeMat", codeMat_txt.getText());
